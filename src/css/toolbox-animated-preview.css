@@ -25,6 +25,7 @@
 }
 
 #animated-preview-container {
+  border: 2px solid #888;;
   background: #333;
   border-radius : 0 0 2px 2px;
   overflow : hidden;
@@ -58,6 +59,12 @@
   height : 26px;
   margin : 0;
   box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+    accent-color: #2196F3;
 }
 
 .preview-toggle-onion-skin {
@@ -177,8 +184,8 @@
 
 .preview-drop-down .size-button-selected {
   opacity: 1;
-  color: gold;
-  border-color: gold;
+  color: #2196F3;
+  border-color: #2196F3;
   z-index: 5;
 }
 

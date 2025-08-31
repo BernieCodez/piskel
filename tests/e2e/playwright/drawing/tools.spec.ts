@@ -17,6 +17,7 @@ const toolsTestNames = [
     "stroke.json",
     "swapcolor.alllayers.allframes.twice.undo.once.json",
     "swapcolor.twice.undo.once.json",
+    "texturing.basic.json",  // <-- Add this line
     "verticalpen.drawing.json"
 ];
 

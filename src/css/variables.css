@@ -1,3 +1,5 @@
 html, body {
-  --highlight-color: gold;
+  /* --highlight-color: gold; */
+  --highlight-color: #2196F3;
+
 }

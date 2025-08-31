@@ -1,9 +1,9 @@
-
 /** Righty sticky drawer expanded state. */
 
 .right-sticky-section.sticky-section {
-  right: 0;
+  left: 0;
   width: 47px;
+  top: 40px; /* Updated positioning */
 
   -webkit-transition: all 200ms ease-out;
   -moz-transition: all 200ms ease-out;
@@ -12,8 +12,11 @@
   transition: all 200ms ease-out;
 }
 
+/* Updated expanded state - newer version takes precedence */
 .right-sticky-section.expanded {
-  right: 280px;
+  z-index: 9999;
+  left: 100px; /* Keep some margin from edge */
+  position: fixed;
 }
 
 .right-sticky-section .tool-icon {
@@ -32,8 +35,10 @@
   text-align: center;
 }
 
+/* Updated drawer content - newer version takes precedence */
 .drawer-content {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: #444;
   height: 550px;
   max-height: 100%;
@@ -41,6 +46,17 @@
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   box-shadow: 0 0 5px 0 black;
+}
+
+.right-sticky-section.expanded .drawer-content {
+  position: fixed;
+  background: #444;
+  border: 1px solid #666;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  z-index: 10000;
 }
 
 .right-sticky-section.expanded .tool-icon {
@@ -52,7 +68,13 @@
   background-color: #444;
   margin-right: 0;
   padding-right: 2px;
-  border-left : 3px solid var(--highlight-color);
+  border-left: 3px solid var(--highlight-color);
+}
+
+/* Make sure the drawer is visible and positioned correctly */
+.right-sticky-section.expanded .drawer.vertical-centerer {
+  display: block;
+  position: relative;
 }
 
 /************************************************************************************************/
@@ -63,7 +85,7 @@
   margin: 10px 20px;
   font-size: 12px;
   font-weight: bold;
-  color: #ccc;
+  color: #fff; /* Updated color */
 }
 
 .settings-section .button {
@@ -74,13 +96,13 @@
   margin-top: 20px;
   margin-bottom: 10px;
   text-transform: uppercase;
-  border-bottom: 1px #aaa solid;
+  border-bottom: 1px solid #666; /* Updated border color */
   padding-bottom: 5px;
-  color: var(--highlight-color);
+  color: #2196F3; /* Updated color */
 }
 
 .settings-description {
-  margin : 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 
 .settings-form-section {
@@ -88,9 +110,164 @@
 }
 
 .settings-item {
-  margin : 10px 0;
+  margin: 10px 0;
 }
 
 [name*=checkbox] {
   vertical-align: middle;
+}
+
+/* Updated form styling */
+.settings-form-section input,
+.settings-form-section select,
+.settings-form-section textarea {
+  background: #333;
+  color: #fff;
+  border: 1px solid #666;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.settings-form-section .button {
+  background: #2196F3;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.settings-form-section .button:hover {
+  background: #1976D2;
+}
+
+/************************************************************************************************/
+/* Header Menu Styles for Piskel                                                               */
+/************************************************************************************************/
+
+/* Updated Header Styles */
+#main-wrapper {
+  margin-top: 40px;
+}
+
+.fake-piskelapp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  background: #1a1a1a;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.piskel-name {
+  font-size: 18px;
+  color: #2196F3;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.piskel-name.piskel-name-saving {
+  color: #f44336;
+}
+
+.new-piskel-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 26px;
+  border-radius: 3px;
+  font-size: 18px;
+  color: #1a1a1a;
+  background: #2196F3;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.new-piskel-desktop:hover {
+  background: #1976D2;
+}
+
+/* Menu System */
+.header-menu {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.menu-item {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 40px;
+  line-height: 24px;
+  transition: background-color 0.2s;
+  border-radius: 0;
+}
+
+.menu-button:hover,
+.menu-button.active {
+  background: #333;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  min-width: 160px;
+  z-index: 1001;
+  display: none;
+}
+
+.menu-dropdown.show {
+  display: block;
+}
+
+.menu-item-option {
+  display: block;
+  padding: 8px 12px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.menu-item-option:hover {
+  background: #444;
+}
+
+/************************************************************************************************/
+/* Settings Panel Overrides                                                                    */
+/************************************************************************************************/
+
+/* Hide the original settings icons but keep them functional */
+.right-sticky-section .sticky-section-wrap > .vertical-centerer {
+  display: none;
 }

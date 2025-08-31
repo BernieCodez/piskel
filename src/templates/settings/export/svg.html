@@ -1,0 +1,97 @@
+<script type="text/html" id="templates/settings/export/svg.html">
+  <div class="export-panel-svg">
+    <div class="export-panel-header export-info">Export your animation as an SVG spritesheet or individual frames.</div>
+    <div class="export-panel-section svg-export-layout-section">
+      <div class="highlight" style="padding-bottom: 5px;">Spritesheet layout options:</div>
+      <div style="display: flex; line-height: 20px;">
+        <div style="flex: 1;">
+          <span>Columns</span>
+          <input type="number" min="1" class="textfield" id="svg-export-columns" name="svg-export-columns">
+        </div>
+        <div style="flex: 1;">
+          <span>Rows</span>
+          <input readonly="true" class="textfield" id="svg-export-rows" name="svg-export-rows">
+        </div>
+      </div>
+    </div>
+    <div class="export-panel-section">
+      <div class="checkbox-container" style="margin: 5px 0;">
+        <input id="svg-preserve-aspect-ratio" class="svg-preserve-aspect-ratio-checkbox checkbox-fix" type="checkbox" checked />
+        <label for="svg-preserve-aspect-ratio">Preserve pixel aspect ratio</label>
+      </div>
+      <div class="checkbox-container" style="margin: 5px 0;">
+        <input id="svg-optimize-output" class="svg-optimize-output-checkbox checkbox-fix" type="checkbox" />
+        <label for="svg-optimize-output">Optimize SVG output</label>
+      </div>
+    </div>
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight export-panel-row">Spritesheet file export: </span>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" class="button button-primary svg-download-button">Download</button>
+        <span class="svg-export-dimension-info export-info"></span>
+      </div>
+    </div>
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight export-panel-row">Spritesheet data-uri export: </span>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" style="white-space: nowrap;" class="button button-primary svg-datauri-open-button">Open</button>
+        <span class="export-info">Open the spritesheet as a data-uri</span>
+      </div>
+    </div>
+
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight export-panel-row">Animation export: </span>
+      </div>
+      <div class="checkbox-container" style="margin: 5px 0;">
+        <input id="svg-animation-loop" class="svg-animation-loop-checkbox checkbox-fix" type="checkbox" checked />
+        <label for="svg-animation-loop">Loop animation</label>
+      </div>
+      <div style="display: flex; line-height: 20px; margin: 5px 0;">
+        <div style="flex: 1;">
+          <span>Frame duration (ms)</span>
+          <input type="number" min="50" max="5000" value="100" class="textfield" id="svg-frame-duration" name="svg-frame-duration">
+        </div>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" class="button button-primary svg-animation-download-button">Download</button>
+        <span class="export-info">Animated SVG file</span>
+      </div>
+    </div>
+
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight">Quick export:</span>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" class="button button-primary svg-quick-export-button">Quick SVG Export</button>
+        <span class="export-info">Fixed size export (20px per cell)</span>
+      </div>
+    </div>
+
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight">Selected frame export:</span>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" class="button button-primary svg-selected-frame-download-button">Download</button>
+        <span class="export-info">Single frame as an SVG file</span>
+      </div>
+    </div>
+
+    <div class="export-panel-section">
+      <div style="padding-bottom: 5px">
+        <span class="highlight">All frames export:</span>
+      </div>
+      <div class="export-panel-row">
+        <button type="button" class="button button-primary svg-all-frames-download-button">Download</button>
+        <span class="export-info">ZIP file containing all frames as individual SVG files</span>
+      </div>
+    </div>
+
+  </div>
+</script>

@@ -1,6 +1,10 @@
 // This list is used both by the grunt build and index.html (in debug mode)
 
 (typeof exports != "undefined" ? exports : pskl_exports).scripts = [
+
+  //em hereh maybe?
+  "js/header-actions.js",
+  
   // Core libraries
   "js/lib/jquery-1.8.0.js",
   "js/lib/jquery-ui-1.10.3.custom.js",
@@ -134,6 +138,7 @@
   "js/controller/settings/PreferencesController.js",
   "js/controller/settings/exportimage/GifExportController.js",
   "js/controller/settings/exportimage/PngExportController.js",
+  "js/controller/settings/exportimage/SvgExportController.js",
   "js/controller/settings/exportimage/ZipExportController.js",
   "js/controller/settings/exportimage/MiscExportController.js",
   "js/controller/settings/exportimage/ExportController.js",
@@ -221,6 +226,7 @@
   "js/tools/drawing/ShapeTool.js",
   "js/tools/drawing/SimplePen.js",
   "js/tools/drawing/Lighten.js",
+  "js/tools/drawing/Texturing.js",
   "js/tools/drawing/VerticalMirrorPen.js",
   "js/tools/drawing/Eraser.js",
   "js/tools/drawing/Stroke.js",

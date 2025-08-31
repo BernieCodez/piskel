@@ -1,51 +1,51 @@
-<style type="text/css">
-  #main-wrapper {
-    margin-top: 40px;
-  }
-
-  .fake-piskelapp-header {
-    position: relative;
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    font-size: 24px;
-    background: black;
-    color: gold;
-    z-index: 100;
-  }
-
-  .piskel-name.piskel-name-saving {
-    color: red;
-  }
-
-  .new-piskel-desktop {
-    position: absolute;
-
-    display: flex;
-    top: 7px;
-    right: 7px;
-
-    height: 26px;
-    width: 26px;
-
-    border-radius: 3px;
-    font-size: 22px;
-    color: black;
-    background: gold;
-    text-decoration: none;
-
-    align-items: center;
-    justify-content: center;
-  }
-</style>
 <div class="fake-piskelapp-header">
-  <a
-    href="index.html"
-    target="_blank"
-    class="new-piskel-desktop button button-primary"
-    title="Create a new sprite"
-    rel="tooltip"
-    data-placement="left"
-    >+</a>
+  <a href="index.html" target="_blank" class="new-piskel-desktop button button-primary" title="Create a new sprite"
+    rel="tooltip" data-placement="bottom">+</a>
+  
+  <!-- Menu System -->
+  <div class="header-menu">
+    <div class="menu-item">
+      <button class="menu-button" id="file-menu-btn">File</button>
+      <div class="menu-dropdown" id="file-menu">
+        <div 
+          class="menu-item-option" 
+          data-setting="import"
+          title="Import an existing image, an animated GIF or a .piskel file">
+          Import...
+        </div>
+        <div 
+          class="menu-item-option" 
+          data-setting="export"
+          title="Export as Image, as Spritesheet or as Animated GIF">
+          Export...
+        </div>
+        <div 
+          class="menu-item-option" 
+          data-setting="save"
+          title="Save to your gallery, save locally or export as a file">
+          Save...
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <button class="menu-button" id="edit-menu-btn">Edit</button>
+      <div class="menu-dropdown" id="edit-menu">
+        <div 
+          class="menu-item-option" 
+          data-setting="resize"
+          title="Resize the drawing area">
+          Resize...
+        </div>
+        <div 
+          class="menu-item-option" 
+          data-setting="user"
+          title="Preferences and settings">
+          Preferences...
+        </div>
+      </div>
+    </div>
+  </div>
+
   <span class="piskel-name"></span>
 </div>

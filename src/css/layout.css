@@ -1,3 +1,83 @@
+/* Sprite list column on the very left */
+.sprite-list-column {
+  position: fixed;
+  left: 0;
+  top: 50px;
+  bottom: 0; /* leave space for bottom divider */
+  width: 140px; /* widened from 80px */
+  background: #181818;
+  border-right: 2px solid #444;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.sprite-list {
+  width: 100%;
+  color: #eee;
+  font-size: 13px;
+}
+
+#recent-sprites {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#recent-sprites li {
+  margin: 8px 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  background: #222;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+#recent-sprites li:hover {
+  background: #444;
+}
+/* Bottom divider for animation frames */
+.bottom-divider {
+  position: fixed;
+  left: 140px; /* match sprite-list-column width */
+  right: 50px;
+  bottom: 0;
+  height: 140px;
+  /* border-top: 2px solid #444; */
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-divider .preview-list-wrapper {
+  width: 100%;
+  height: 120px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-divider .preview-list-scroller {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.bottom-divider .preview-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 20px;
+  height: 100px;
+  align-items: center;
+}
+
+.bottom-divider .preview-tile {
+  margin: 0 5px;
+}
 /**
  * Application layout
  */
@@ -6,7 +86,7 @@
   position: fixed;
   top: 5px;
   right: 0;
-  bottom: 5px;
+  bottom: 145px; /* leave space for bottom divider */
   left: 0;
 }
 
@@ -14,18 +94,18 @@
   text-align: center;
   font-size: 0;
   display: flex;
-
   position: absolute;
-  left: 100px; /* Reserve room for tools on the left edge of the screen. */
+  left: 150px; /* match sprite-list-column width */
   top: 0;
   right: 50px; /* Reserve room for actions on the right edge of the screen. */
   bottom: 0;
+  height: calc(100% - 145px); /* leave space for bottom divider */
 }
 
 .left-column {
   vertical-align: top;
   height: 100%;
-  padding-right: 7px;
+  padding-right: 10px;
   flex-shrink: 0;
 }
 
@@ -35,6 +115,8 @@
 }
 
 .right-column {
+  /* border: 2px solid #888;
+  border-radius: 2px; */
   box-sizing: border-box;
   vertical-align: top;
   height: 100%;
@@ -45,12 +127,17 @@
   position: relative;
 
   /* Keep in sync with Constants.RIGHT_COLUMN_PADDING_LEFT */
-  padding-left: 10px;
+  padding: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
+
   /* Add some padding for the absolutely positioned .cursor-coordinates */
   padding-bottom: 20px;
 }
 
 .drawing-canvas-container {
+  border: 1px solid #888;
+  border-top: none;
   font-size: 0;
 }
 
@@ -71,9 +158,11 @@
   vertical-align: middle;
 }
 
-.left-sticky-section.sticky-section {
-  left: 0;
+
+.left-tools-section {
+  position: relative;
   max-width: 100px;
+  background: none;
 }
 
 .left-sticky-section .tool-icon {
@@ -81,6 +170,10 @@
 }
 
 .cursor-coordinates {
+  z-index: 100;
+  position: fixed;
+  bottom: 150px;
+  right: 225px;
   color: var(--highlight-color);
   font-size: 12px;
   font-weight: bold;
@@ -103,6 +196,7 @@
  */
 
 .canvas {
+  outline: none;
   position: relative;
   z-index: 1;
 }
@@ -152,10 +246,20 @@
   left: 0;
 }
 
-.tools-wrapper,
+.tools-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100px;
+}
+.tools-wrapper > li {
+  width: 45px;
+  height: 48px;
+  margin: 0;
+}
 .options-wrapper,
 .palette-wrapper {
-  float : left;
+  float: left;
 }
 
 /**

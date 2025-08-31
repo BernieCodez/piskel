@@ -22,17 +22,26 @@
     color:white;">
       <span style="top:45%">Loading Piskel ...</span>
   </div>
+  
+  <!-- Include the updated header -->
   @@include('templates/debug-header.html', {})
 
   <!-- the comment below indicates the beginning of markup reused by the editor integrated in piskelapp.com -->
   <!-- do not delete, do not move :) -->
   <!--body-main-start-->
   <div id="main-wrapper" class="main-wrapper">
-    @@include('templates/drawing-tools.html', {})
 
     <div id="column-wrapper" class="column-wrapper">
+      <div class='sprite-list-column'>
+        <div id="sprite-list" class="sprite-list">
+          <h4>Recent Sprites</h4>
+          <ul id="recent-sprites">
+            <!-- Recent sprites will be dynamically inserted here -->
+          </ul>
+        </div>
+      </div>
       <div class='column left-column'>
-        @@include('templates/frames-list.html', {})
+        @@include('templates/drawing-tools.html', {})
       </div>
 
       <div class='column main-column'>
@@ -50,7 +59,12 @@
       </div>
     </div>
 
-    <div id="application-action-section" data-pskl-controller="settings" class="sticky-section right-sticky-section">
+    <div id="bottom-divider" class="bottom-divider">
+      @@include('templates/frames-list.html', {})
+    </div>
+
+  <!-- Settings panel with updated template -->
+   <div id="application-action-section" data-pskl-controller="settings" class="sticky-section right-sticky-section">
       <div class="sticky-section-wrap">
         @@include('templates/settings.html', {})
         <div class="drawer vertical-centerer">
@@ -95,12 +109,16 @@
   @@include('templates/settings/export.html', {})
   @@include('templates/settings/export/png.html', {})
   @@include('templates/settings/export/gif.html', {})
-  @@include('templates/settings/export/zip.html', {})
+  @@include('templates/settings/export/svg.html', {})
   @@include('templates/settings/export/misc.html', {})
 
   <script type="text/javascript">
     @@include('piskel-boot.js', {})
   </script>
+  
+  <!-- Include the header menu controller -->
+  <!-- <script type="text/javascript" src="/js/header-menu-controller.js"></script> -->
+  
   <!--body-main-end-->
   <!-- the comment above indicates the end of the markup reused by the editor integrated in piskelapp.com -->
   <!-- do not delete, do not move :) -->

@@ -1,25 +1,30 @@
 (function () {
   var ns = $.namespace('pskl.controller.settings.exportimage');
 
+  // Add this to the tabs object in the main ExportController file
   var tabs = {
-    'png' : {
-      template : 'templates/settings/export/png.html',
-      controller : ns.PngExportController
+    'png': {
+      template: 'templates/settings/export/png.html',
+      controller: ns.PngExportController
     },
-    'gif' : {
-      template : 'templates/settings/export/gif.html',
-      controller : ns.GifExportController
+    'gif': {
+      template: 'templates/settings/export/gif.html',
+      controller: ns.GifExportController
     },
-    'zip' : {
-      template : 'templates/settings/export/zip.html',
-      controller : ns.ZipExportController
+    'svg': {
+      template: 'templates/settings/export/svg.html',
+      controller: ns.SvgExportController
     },
-    'misc' : {
-      template : 'templates/settings/export/misc.html',
-      controller : ns.MiscExportController
+    'zip': {
+      template: 'templates/settings/export/zip.html',
+      controller: ns.ZipExportController
+    },
+    'misc': {
+      template: 'templates/settings/export/misc.html',
+      controller: ns.MiscExportController
     }
   };
-
+  
   ns.ExportController = function (piskelController) {
     this.piskelController = piskelController;
     this.tabsWidget = new pskl.widgets.Tabs(tabs, this, pskl.UserSettings.EXPORT_TAB);

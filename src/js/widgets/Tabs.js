@@ -48,6 +48,7 @@
       selectedTab.classList.remove('selected');
     }
     this.tabListEl.querySelector('[data-tab-id="' + tabId + '"]').classList.add('selected');
+    console.log(this.tabListEl.querySelector('[data-tab-id="' + tabId + '"]'));
   };
 
   ns.Tabs.prototype.onTabsClicked_ = function (e) {
